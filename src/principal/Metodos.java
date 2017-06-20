@@ -26,7 +26,7 @@ public class Metodos {
     public void llenarArray() {
         for (int i = 0; i < 5; i++) {
             entrada.llenarEntrada();
-            lista.add(entrada);
+            lista.add(i,entrada);
         }
     }
 
@@ -35,10 +35,16 @@ public class Metodos {
     }
 
     public void consultar(String grad) {
+        boolean encontrado=false;
+        int cont=0;
         for (int o = 0; o < 5; o++) {
             entrada=lista.get(o);
             if (grad.equalsIgnoreCase(entrada.getGrada())) {
-                System.out.println(entrada.getPrezo() + " €");
+                encontrado=true;
+                cont++;
+                if(encontrado!=false&&cont<=1){
+                    System.out.println(entrada.getPrezo() + " €");
+                }
             } else {
                 System.out.println("Esa grada no existe");
             }
